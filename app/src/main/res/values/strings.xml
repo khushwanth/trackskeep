@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TracksKeep</string>
+
+    <string name="cte">Human Computer Interaction</string>
+    <string name="dis1">OO Analysis &amp; Design</string>
+    <string name="dis2">Cryptography &amp; Network Security</string>
+    <string name="cpl">Systems Programming</string>
+    <string name="itm">E-Commerce Technology</string>
+    <string name="apply">Save Track</string>
+    <string name="copyright">&#169; Khusant Chhetri</string>
+</resources>
