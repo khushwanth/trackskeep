@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 /*
  * The code in this app is not at all optimized and all the values are hardcoded.
 */
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
-    TextView miss,m1,m2,m3,m4,m5,trial;
+    TextView miss,m1,m2,m3,m4,m5,trial,tod,tom;
     Button submit;
     int totalMiss1,totalMiss2,totalMiss3,totalMiss4,totalMiss5;
     String displayToast="+1 hour Missed for ";
@@ -51,6 +53,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        String mon="MON: Assem, OOA | CRYP, SysProg || OOA (P)",tue="TUE: CRYP, HCI | ECom, SysProg || CRYP (P)",wed="WED: ECom, OOA | HCI, SysProg || SysProg (P)",thu="THU: ECom, OOA | CRYP (T), OOA (-T-) || SysProg (T), PROG CLUB",fri="FRI: CRYP, HCI | ECom (T), OOA (-T-) || OFF, HCI (-T-)";
+        //Displaying Time Table
+        tod=(TextView)findViewById(R.id.today);
+        tom=(TextView)findViewById(R.id.tomorrow);
+        Calendar cal=Calendar.getInstance();
+        int day=cal.get(Calendar.DAY_OF_WEEK);
+        switch(day) {
+            case Calendar.MONDAY:
+                tod.setText(mon);
+                tom.setText(tue);
+                break;
+            case Calendar.TUESDAY:
+                tod.setText(tue);
+                tom.setText(wed);
+                break;
+            case Calendar.WEDNESDAY:
+                tod.setText(wed);
+                tom.setText(thu);
+                break;
+            case Calendar.THURSDAY:
+                tod.setText(thu);
+                tom.setText(fri);
+                break;
+            case Calendar.FRIDAY:
+                tod.setText(fri);
+                tom.setText(mon);
+                break;
+            default: tod.setText("Failed to Load Time Table");
+                tom.setText("Failed to Looad Time Table");
+                break;
+        }
     }
     public void butOne(View v) {
         miss=(TextView)findViewById(R.id.missed1);
